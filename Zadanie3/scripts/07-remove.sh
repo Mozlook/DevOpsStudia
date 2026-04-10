@@ -1,7 +1,6 @@
 #!/bin/sh
 set -e
 
-docker rm api-a 
-docker rm api-b
+docker rm product-dashboard-backend
 docker rm product-dashboard-frontend
 
