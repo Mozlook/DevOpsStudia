@@ -17,4 +17,4 @@ docker run -d \
   --name product-dashboard-frontend \
   --network product-dashboard-net \
   -p 8080:80 \
-  ghcr.io/mozlook/product-dashboard-frontend:v1
+  ghcr.io/mozlook/product-dashboard-frontend:v2
