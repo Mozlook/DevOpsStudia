@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Product Dashboard</title>
+  <link rel="stylesheet" href="./css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="./index.html">Product Dashboard</a>
+      <nav class="nav-links">
+        <a class="active" href="./index.html">Start</a>
+        <a href="./products.html">Produkty</a>
+        <a href="./stats.html">Statystyki</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <p class="eyebrow">Demo aplikacji webowej</p>
+          <h1>Zarządzaj produktami i sprawdzaj statystyki backendu</h1>
+          <p class="hero-text">
+            Prosty dashboard oparty wyłącznie na statycznych plikach HTML, CSS i czystym JavaScript.
+            Dane pobierane są z API wystawionego za Nginx pod ścieżką <code>/api/</code>.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="./products.html">Przejdź do produktów</a>
+            <a class="btn btn-secondary" href="./stats.html">Zobacz statystyki</a>
+          </div>
+        </div>
+
+        <aside class="panel">
+          <h2>Zakres demo</h2>
+          <ul class="feature-list">
+            <li>Statyczny frontend bez frameworków</li>
+            <li>Lista produktów pobierana przez <code>fetch</code></li>
+            <li>Formularz dodawania nowych produktów</li>
+            <li>Widok statystyk backendu</li>
+            <li>Integracja przez Nginx z proxy pod <code>/api/</code></li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+
+    <section class="section section-muted">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <p class="eyebrow">Endpointy używane przez frontend</p>
+            <h2>API</h2>
+          </div>
+        </div>
+
+        <div class="panel">
+          <ul class="endpoint-list">
+            <li><code>GET /api/items</code> — pobranie listy produktów</li>
+            <li><code>POST /api/items</code> — dodanie nowego produktu</li>
+            <li><code>GET /api/stats</code> — pobranie statystyk aplikacji</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
