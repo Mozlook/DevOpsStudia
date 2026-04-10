@@ -1,4 +1,4 @@
-const STATS_API_URL = "/api/stats";
+const STATS_API_URL = `/api/stats?refresh=${Date.Now()}`;
 
 const statsMessage = document.getElementById("stats-message");
 const refreshStatsButton = document.getElementById("refresh-stats");
