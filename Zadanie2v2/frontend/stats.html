@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product Dashboard - Statystyki</title>
+    <link rel="stylesheet" href="./css/style.css" />
+    <script src="./js/stats.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container nav">
+        <a class="brand" href="./index.html">Product Dashboard</a>
+        <nav class="nav-links">
+          <a href="./index.html">Start</a>
+          <a href="./products.html">Produkty</a>
+          <a class="active" href="./stats.html">Statystyki</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="section">
+      <div class="container">
+        <div class="section-header section-header-spaced">
+          <div>
+            <p class="eyebrow">Monitoring demonstracyjny</p>
+            <h1>Statystyki aplikacji</h1>
+            <p class="section-description">
+              Widok pobiera dane z endpointu <code>GET /api/stats</code> i
+              pokazuje informacje zwrócone przez backend.
+            </p>
+          </div>
+
+          <button id="refresh-stats" class="btn btn-primary" type="button">
+            Odśwież statystyki
+          </button>
+        </div>
+
+        <p id="stats-message" class="notice notice-info">
+          Kliknij przycisk, aby pobrać statystyki.
+        </p>
+
+        <section class="stats-grid">
+          <article class="panel stat-card">
+            <span class="stat-label">Liczba wszystkich produktów</span>
+            <strong id="stats-total-products" class="stat-value">-</strong>
+          </article>
+
+          <article class="panel stat-card">
+            <span class="stat-label">Instancja backendu</span>
+            <strong id="stats-instance-id" class="stat-value">-</strong>
+          </article>
+
+          <article class="panel stat-card">
+            <span class="stat-label">X-Cache-Status</span>
+            <strong id="stats-cache-status" class="stat-value">-</strong>
+          </article>
+
+          <article class="panel stat-card">
+            <span class="stat-label">Czas wygenerowania danych</span>
+            <strong id="stats-generated-at" class="stat-value stat-value-small"
+              >-</strong
+            >
+          </article>
+
+          <article class="panel stat-card">
+            <span class="stat-label">Czas pobrania w przeglądarce</span>
+            <strong id="stats-loaded-at" class="stat-value stat-value-small"
+              >-</strong
+            >
+          </article>
+        </section>
+      </div>
+    </main>
+  </body>
+</html>
