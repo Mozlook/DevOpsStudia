@@ -1,0 +1,58 @@
+DEPRECATED: The legacy builder is deprecated and will be removed in a future release.
+            Install the buildx component to build images with BuildKit:
+            https://docs.docker.com/go/buildx/
+
+Sending build context to Docker daemon   38.4kB
+Step 1/11 : FROM node:20-alpine
+ ---> ccfb9f0dc7ac
+Step 2/11 : ARG IMAGE_VERSION
+ ---> Running in 82a13badcd93
+ ---> Removed intermediate container 82a13badcd93
+ ---> e008e9267d3c
+Step 3/11 : LABEL version=$IMAGE_VERSION
+ ---> Running in 5f6b5ceb064b
+ ---> Removed intermediate container 5f6b5ceb064b
+ ---> b07abc4cf13a
+Step 4/11 : ENV NODE_ENV=production     PORT=3000
+ ---> Running in 10bc3d6e7584
+ ---> Removed intermediate container 10bc3d6e7584
+ ---> e1d70b1ca89b
+Step 5/11 : WORKDIR /app
+ ---> Running in 757b889df09a
+ ---> Removed intermediate container 757b889df09a
+ ---> 37b63f62c366
+Step 6/11 : COPY package.json package-lock.json ./
+ ---> f7ea25bb2615
+Step 7/11 : RUN npm ci --omit=dev && npm cache clean --force
+ ---> Running in c9532944f9e9
+
+added 65 packages, and audited 66 packages in 955ms
+
+22 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+[91mnpm notice
+npm notice New major version of npm available! 10.8.2 -> 11.12.1
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.12.1
+npm notice To update run: npm install -g npm@11.12.1
+npm notice
+[0m[91mnpm warn using --force Recommended protections disabled.
+[0m ---> Removed intermediate container c9532944f9e9
+ ---> 0666065e2334
+Step 8/11 : COPY . .
+ ---> e1efe4143795
+Step 9/11 : USER node
+ ---> Running in 0bf37ed45f55
+ ---> Removed intermediate container 0bf37ed45f55
+ ---> 42a1b9f09726
+Step 10/11 : EXPOSE 3000
+ ---> Running in ef6a4c04f14f
+ ---> Removed intermediate container ef6a4c04f14f
+ ---> 10aaf45bf666
+Step 11/11 : CMD ["node", "server.js"]
+ ---> Running in 3fe3c7c74e99
+ ---> Removed intermediate container 3fe3c7c74e99
+ ---> 90f20abbedd4
+Successfully built 90f20abbedd4
+Successfully tagged product-dashboard-backend4:exp1-hit
