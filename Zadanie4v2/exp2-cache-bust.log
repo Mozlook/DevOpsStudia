@@ -1,0 +1,56 @@
+DEPRECATED: The legacy builder is deprecated and will be removed in a future release.
+            Install the buildx component to build images with BuildKit:
+            https://docs.docker.com/go/buildx/
+
+Sending build context to Docker daemon   38.4kB
+Step 1/11 : FROM node:20-alpine
+ ---> ccfb9f0dc7ac
+Step 2/11 : ARG IMAGE_VERSION
+ ---> Using cache
+ ---> 6d24b9868dde
+Step 3/11 : LABEL version=$IMAGE_VERSION
+ ---> Using cache
+ ---> 79d7702aa0a8
+Step 4/11 : ENV NODE_ENV=production     PORT=3000
+ ---> Using cache
+ ---> 7e4713fdb351
+Step 5/11 : WORKDIR /app
+ ---> Using cache
+ ---> 7cfed7734a65
+Step 6/11 : COPY package.json package-lock.json ./
+ ---> 8ceb551ed009
+
+ -------------------------------------------------------------
+Step 7/11 : RUN npm ci --omit=dev && npm cache clean --force
+ ---> Running in 254b6362b0fb
+-------------------------------------------------------------
+added 66 packages, and audited 67 packages in 1s
+
+22 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+[91mnpm notice
+npm notice New major version of npm available! 10.8.2 -> 11.12.1
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.12.1
+npm notice To update run: npm install -g npm@11.12.1
+npm notice
+[0m[91mnpm warn using --force Recommended protections disabled.
+[0m ---> Removed intermediate container 254b6362b0fb
+ ---> aab3ffbc5a4d
+Step 8/11 : COPY . .
+ ---> 9b746e587b5a
+Step 9/11 : USER node
+ ---> Running in 1d97afcc713e
+ ---> Removed intermediate container 1d97afcc713e
+ ---> 841b494abbc6
+Step 10/11 : EXPOSE 3000
+ ---> Running in 05ebe73afc4b
+ ---> Removed intermediate container 05ebe73afc4b
+ ---> de12af2766fe
+Step 11/11 : CMD ["node", "server.js"]
+ ---> Running in 86f88194dffc
+ ---> Removed intermediate container 86f88194dffc
+ ---> 82b31546794e
+Successfully built 82b31546794e
+Successfully tagged product-dashboard-backend4:exp1-hit
