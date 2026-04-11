@@ -1,0 +1,59 @@
+docker build --build-arg IMAGE_VERSION=v1 -t product-dashboard-backend4:v1 ./backend
+DEPRECATED: The legacy builder is deprecated and will be removed in a future release.
+            Install the buildx component to build images with BuildKit:
+            https://docs.docker.com/go/buildx/
+
+Sending build context to Docker daemon  37.89kB
+Step 1/11 : FROM node:20-alpine
+ ---> ccfb9f0dc7ac
+Step 2/11 : ARG IMAGE_VERSION
+ ---> Running in 31bd516faefc
+ ---> Removed intermediate container 31bd516faefc
+ ---> af6b2890bc74
+Step 3/11 : LABEL version=$IMAGE_VERSION
+ ---> Running in 6d01cc48b069
+ ---> Removed intermediate container 6d01cc48b069
+ ---> a48f1687e91f
+Step 4/11 : ENV NODE_ENV=production     PORT=3000
+ ---> Running in e7b4d5d1f99b
+ ---> Removed intermediate container e7b4d5d1f99b
+ ---> eb982d4a64ec
+Step 5/11 : WORKDIR /app
+ ---> Running in 68efa9c006dd
+ ---> Removed intermediate container 68efa9c006dd
+ ---> c72f28821872
+Step 6/11 : COPY package.json package-lock.json ./
+ ---> 883075515e8c
+Step 7/11 : RUN npm ci --omit=dev && npm cache clean --force
+ ---> Running in 9403681eef0b
+
+added 65 packages, and audited 66 packages in 1s
+
+22 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+npm notice
+npm notice New major version of npm available! 10.8.2 -> 11.12.1
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.12.1
+npm notice To update run: npm install -g npm@11.12.1
+npm notice
+npm warn using --force Recommended protections disabled.
+ ---> Removed intermediate container 9403681eef0b
+ ---> deb93cb507d5
+Step 8/11 : COPY . .
+ ---> d6d143c966ef
+Step 9/11 : USER node
+ ---> Running in 2a6fe8e2470f
+ ---> Removed intermediate container 2a6fe8e2470f
+ ---> 150462774ad5
+Step 10/11 : EXPOSE 3000
+ ---> Running in bd399a7c2bdd
+ ---> Removed intermediate container bd399a7c2bdd
+ ---> 641c9575f6f1
+Step 11/11 : CMD ["node", "server.js"]
+ ---> Running in 1f6acdf19b61
+ ---> Removed intermediate container 1f6acdf19b61
+ ---> 9f297fd39cd4
+Successfully built 9f297fd39cd4
+Successfully tagged product-dashboard-backend4:v1
