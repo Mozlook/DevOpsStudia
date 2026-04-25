@@ -1,0 +1,14 @@
+{
+  "name": "product-dashboard-backend",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Product Dashboard backend in Node.js/Express",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "5.2.1",
+    "lodash": "^4.18.1"
+  }
+}

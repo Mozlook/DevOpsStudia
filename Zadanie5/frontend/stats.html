@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product Dashboard - Statystyki</title>
+    <link rel="stylesheet" href="./css/style.css" />
+    <script src="./js/stats.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container nav">
+        <a class="brand" href="./index.html">Product Dashboard</a>
+        <nav class="nav-links">
+          <a href="./index.html">Start</a>
+          <a href="./products.html">Produkty</a>
+          <a class="active" href="./stats.html">Statystyki</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="section">
+      <div class="container">
+        <div class="section-header section-header-spaced">
+          <div>
+            <p class="eyebrow">Monitoring aplikacji</p>
+            <h1>Statystyki</h1>
+            <p class="section-description">
+              Ta podstrona pobiera dane z endpointu
+              <code>GET /api/stats</code> i pokazuje liczbę produktów oraz
+              identyfikator instancji backendu.
+            </p>
+          </div>
+
+          <div class="actions-row">
+            <button id="refresh-stats" class="btn btn-secondary" type="button">
+              Odśwież statystyki
+            </button>
+          </div>
+        </div>
+
+        <p id="stats-message" class="notice notice-info">
+          Gotowe do pobrania statystyk.
+        </p>
+
+        <section class="panel">
+          <div class="panel-header">
+            <h2>Dane z API</h2>
+            <p>
+              Dane są pobierane przez frontend z endpointu
+              <code>/api/stats</code>, który Nginx przekazuje do backendu jako
+              <code>/stats</code>.
+            </p>
+          </div>
+
+          <div class="stats-grid">
+            <article class="stat-card">
+              <span class="stat-label">Liczba produktów</span>
+              <strong id="stats-total-products" class="stat-value">-</strong>
+            </article>
+
+            <article class="stat-card">
+              <span class="stat-label">Instancja backendu</span>
+              <strong id="stats-instance-id" class="stat-value">-</strong>
+            </article>
+
+            <article class="stat-card">
+              <span class="stat-label">Status cache Nginx</span>
+              <strong id="stats-cache-status" class="stat-value">-</strong>
+            </article>
+
+            <article class="stat-card">
+              <span class="stat-label">Wygenerowano na backendzie</span>
+              <strong id="stats-generated-at" class="stat-value">-</strong>
+            </article>
+
+            <article class="stat-card">
+              <span class="stat-label">Załadowano w przeglądarce</span>
+              <strong id="stats-loaded-at" class="stat-value">-</strong>
+            </article>
+          </div>
+        </section>
+      </div>
+    </main>
+  </body>
+</html>
