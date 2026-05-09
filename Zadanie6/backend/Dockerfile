@@ -8,9 +8,11 @@ ENV NODE_ENV=production \
 
 WORKDIR /app
 
-COPY package*.json ./
+COPY --chown=node:node package*.json ./
 
-RUN npm install --omit=dev && npm cache clean --force
+RUN npm install --omit=dev \
+    && npm cache clean --force \
+    && chown -R node:node /app /home/node/.npm
 
 COPY --chown=node:node . .
 
