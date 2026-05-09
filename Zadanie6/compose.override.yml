@@ -1,0 +1,16 @@
+services:
+  backend:
+    environment:
+      NODE_ENV: development
+      DEBUG: "1"
+    volumes:
+      - type: bind
+        source: ./backend
+        target: /app
+      - type: volume
+        source: backend-node-modules
+        target: /app/node_modules
+    command: sh -c "npm install && npm run dev"
+
+volumes:
+  backend-node-modules:

@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product Dashboard - Produkty</title>
+    <link rel="stylesheet" href="./css/style.css" />
+    <script src="./js/products.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container nav">
+        <a class="brand" href="./index.html">Product Dashboard</a>
+        <nav class="nav-links">
+          <a href="./index.html">Start</a>
+          <a class="active" href="./products.html">Produkty</a>
+          <a href="./stats.html">Statystyki</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="section">
+      <div class="container">
+        <div class="section-header section-header-spaced">
+          <div>
+            <p class="eyebrow">Zarządzanie danymi</p>
+            <h1>Lista produktów</h1>
+            <p class="section-description">
+              Ta podstrona pobiera dane z API i pozwala dodać nowy produkt przez
+              formularz HTML.
+            </p>
+          </div>
+
+          <div class="actions-row">
+            <span class="badge"
+              >Łącznie: <strong id="total-products">0</strong></span
+            >
+            <button
+              id="reload-products"
+              class="btn btn-secondary"
+              type="button"
+            >
+              Odśwież listę
+            </button>
+          </div>
+        </div>
+
+        <p id="products-message" class="notice notice-info">
+          Gotowe do pobrania danych.
+        </p>
+
+        <div class="two-column-layout">
+          <section class="panel">
+            <div class="panel-header">
+              <h2>Produkty</h2>
+              <p>
+                Lista rekordów zwróconych przez endpoint
+                <code>GET /api/items</code>.
+              </p>
+            </div>
+
+            <div id="products-list" class="product-grid">
+              <article class="empty-state">
+                <h3>Brak danych</h3>
+                <p>Kliknij „Odśwież listę”, aby pobrać produkty z API.</p>
+              </article>
+            </div>
+          </section>
+
+          <aside class="panel">
+            <div class="panel-header">
+              <h2>Dodaj produkt</h2>
+              <p>
+                Formularz wysyła dane do endpointu <code>POST /api/items</code>.
+              </p>
+            </div>
+
+            <form id="product-form" class="form-grid">
+              <div class="form-field">
+                <label for="name">Nazwa produktu</label>
+                <input
+                  id="name"
+                  name="name"
+                  type="text"
+                  placeholder="np. Laptop Pro 14"
+                  required
+                />
+              </div>
+
+              <div class="form-field">
+                <label for="category">Kategoria</label>
+                <input
+                  id="category"
+                  name="category"
+                  type="text"
+                  placeholder="np. Elektronika"
+                  required
+                />
+              </div>
+
+              <div class="form-field">
+                <label for="price">Cena</label>
+                <input
+                  id="price"
+                  name="price"
+                  type="number"
+                  min="0"
+                  step="0.01"
+                  placeholder="np. 4999.99"
+                  required
+                />
+              </div>
+
+              <button id="submit-product" class="btn btn-primary" type="submit">
+                Dodaj produkt
+              </button>
+            </form>
+          </aside>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
